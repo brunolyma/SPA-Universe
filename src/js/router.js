@@ -8,6 +8,9 @@ export class Router {
     event = event || window.event;
     event.preventDefault();
 
+    console.log(window.location.href);
+    console.log(event.target.href);
+
     window.history.pushState({}, "", event.target.href);
 
     this.handle();
@@ -15,12 +18,18 @@ export class Router {
 
   handle() {
     const { pathname } = window.location;
+
     const route = this.routes[pathname] || this.routes[404];
-    console.log(pathname, route);
     fetch(route)
       .then((data) => data.text())
       .then((html) => {
         document.querySelector("#app").innerHTML = html;
       });
+  }
+
+  stylePage(page) {
+    if (page == window.location.href) {
+      console.log;
+    }
   }
 }
