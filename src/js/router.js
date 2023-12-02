@@ -8,12 +8,10 @@ export class Router {
     event = event || window.event;
     event.preventDefault();
 
-    console.log(window.location.href);
-    console.log(event.target.href);
-
     window.history.pushState({}, "", event.target.href);
 
     this.handle();
+    this.stylePage(event);
   }
 
   handle() {
@@ -28,8 +26,17 @@ export class Router {
   }
 
   stylePage(page) {
-    if (page == window.location.href) {
-      console.log;
+    const target = page.target;
+
+    document.querySelectorAll("nav a").forEach((item) => {
+      item.classList.remove("active");
+    });
+    document.querySelector("html").removeAttribute("class");
+
+    if (target.href == window.location.href) {
+      console.log(target.classList);
+      target.classList.add("active");
+      document.querySelector("html").classList.add(target.dataset.name);
     }
   }
 }

@@ -15,9 +15,9 @@
     <header>
         <img src="./assets/vector.svg" alt="desenho de uma galaxia em espiral">
         <nav>
-            <a href="/" onclick="route()">Home</a>
-            <a href="/universe" onclick="route()">O Universo</a>
-            <a href="/explorer" onclick="route()">Exploração</a>
+            <a class="active" data-name="home" href="/" onclick="route()">Home</a>
+            <a data-name="universe" href="/universe" onclick="route()">O Universo</a>
+            <a data-name="explorer" href="/explorer" onclick="route()">Exploração</a>
         </nav>
     </header>
     <div id="app"></div>

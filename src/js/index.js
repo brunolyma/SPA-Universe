@@ -10,3 +10,6 @@ router.handle();
 
 window.onpopstate = router.handle();
 window.route = () => router.route();
+window.location.pathname == "/"
+  ? window.location.pathname
+  : (window.location.pathname = "/");
